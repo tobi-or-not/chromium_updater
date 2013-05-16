@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 
-# Script Paths
-base_url="http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac"
-version_url=$base_url"/LAST_CHANGE"
+# *****************************************************
+# Change 'base_path' according to your individual setup
+# *****************************************************
 
+# Script Paths
 base_path="/Applications/Chromium.app"
 version_file=$base_path"/Contents/info.plist"
+
+base_url="http://commondatastorage.googleapis.com/chromium-browser-snapshots/Mac"
+version_url=$base_url"/LAST_CHANGE"
 
 runtimestamp=`date "+%Y%m%d_%H%M%S"`
 
 source_file="chrome-mac.zip"
 target_file=$runtimestamp-$source_file
 
-#================================
+# ================================
 
 function log () {
 	message=$1;
