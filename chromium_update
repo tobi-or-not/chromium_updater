@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 # *****************************************************
+# Written by Tobias Buchmann 2013, mail@tobi-or-not.de
+#
+# This script can be used non-commercially
+# and at own risk.
+#
 # Change 'base_path' according to your individual setup
 # *****************************************************
 
@@ -34,6 +39,15 @@ function log () {
 	if [ $local_version -lt $latest_version ]
 	then
 		echo "UPDATES ARE AVAILABLE"
+
+		read -p "Would you like to update now? (y/n) " -n 1 -r
+		echo "\n"
+		if [[ ! $REPLY =~ ^[Yy]$ ]]
+		then
+			echo "Update canceled"
+			exit 0			   
+		fi
+
 	else
 		echo "Chromium is up to date"
 		exit 0
